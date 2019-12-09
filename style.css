@@ -1,204 +1,324 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-
-body {
-    /* background-color: #C87072; */
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 section {
-    height: 100vh;
-    display: flex;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 @media (max-width: 500px) {
-    section {
-        flex-direction: column;
-    }
-
-    .img-container {
-        width: 90%;
-    }
+  section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .logo {
-    position: absolute;
-    background-color: #fff;
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    transition: 1s;
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+@media (max-width: 500px) {
+  .logo {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.logo svg {
+  position: relative;
+  width: 65%;
+  top: 50%;
+  left: 46%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .logo.banner {
-    height: 100vh;
-    width: 100%;
-    border-radius: 0;
+  height: 100vh;
+  width: 100%;
+  border-radius: 0;
 }
 
-.menu {}
+.nav {
+  position: absolute;
+  height: 100vh;
+  width: 30%;
+  background-color: #E79C00;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 2;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+}
 
-.logo svg {
-    position: relative;
-    width: 65%;
-    top: 50%;
-    left: 46%;
-    transform: translate(-50%, -50%);
+@media (max-width: 500px) {
+  .nav {
+    width: 100%;
+  }
+}
 
+.nav-links {
+  list-style: none;
+  text-align: center;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 10% 0;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 32px;
+  color: #6D2128;
+  opacity: 0;
+}
+
+.navActive {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 .img-container {
-    position: relative;
-    background-color: red;
-    width: 50%;
-    height: 97%;
-    margin: 0.5%;
-    box-sizing: margin-box;
+  position: relative;
+  width: 50%;
+  height: 98%;
+  margin: 0.5%;
+  -webkit-box-sizing: margin-box;
+          box-sizing: margin-box;
+}
 
-
+@media (max-width: 500px) {
+  .img-container {
+    width: 100%;
+  }
 }
 
 .cafe {
-    background: url(./cafe.png);
-    background-size: cover;
-    background-position: center;
+  background: url(./img/cafe.png);
+  background-size: cover;
+  background-position: center;
 }
 
 .playhouse {
-    background: url(./playhouse.jpg);
-    background-size: cover;
-    background-position: center;
+  background: url(./img/playhouse.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .title {
-    background-color: rgba(200, 112, 113, 0.8);
-    padding: 10px;
-    width: 50%;
+  background-color: rgba(200, 112, 113, 0.8);
+  padding: 20px 40px;
+  width: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+  position: relative;
+  bottom: -80vh;
+  font-size: 32px;
+  color: white;
+}
+
+@media (max-width: 500px) {
+  .title {
+    top: 60%;
     left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    position: relative;
-    bottom: -80vh;
-    font-size: 32px;
-    color: white;
+    width: 70%;
+    font-size: 20px;
+    padding: 10px 20px;
+  }
 }
 
-.hero {
-    transition: 0.5s;
-}
-
-.hero:hover .img-container {
-    filter: blur(2px);
-    filter: grayscale(0.8);
-}
-
-.hero .img-container:hover {
-    filter: blur(0);
-    filter: grayscale(0);
+@media (max-width: 500px) {
+  .playhouse .title {
+    top: 25%;
+  }
 }
 
 .menu {
-    position: absolute;
-    top: 2%;
-    right: 2%;
-    z-index: 1;
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  z-index: 3;
 }
 
 .menu .line {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px;
-    transition: .2s;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
-
-
-
-@media (max-width: 500px) {
-    section {
-        flex-direction: column;
-    }
-
-    .img-container {
-        width: 100%;
-    }
-
-    .logo {
-        width: 150px;
-        height: 150px;
-    }
+.menuActive .line:nth-child(1) {
+  -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+          transform: rotate(-45deg) translate(-5px, 6px);
 }
 
+.menuActive .line:nth-child(2) {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+}
 
+.menuActive .line:nth-child(3) {
+  -webkit-transform: rotate(45deg) translate(-5px, -6px);
+          transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@-webkit-keyframes navLinkFade {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
 
 path:nth-of-type(1) {
-    stroke-dasharray: 1074px;
-    stroke-dashoffset: 1074px;
-    animation: lineAnim 1s ease forwards, fillColor 0.5s ease 2.2s forwards;
+  stroke-dasharray: 1074px;
+  stroke-dashoffset: 1074px;
+  -webkit-animation: lineAnim 1s ease forwards, fillColor 0.5s ease 2.2s forwards;
+          animation: lineAnim 1s ease forwards, fillColor 0.5s ease 2.2s forwards;
 }
 
 path:nth-of-type(2) {
-    stroke-dasharray: 219px;
-    stroke-dashoffset: 219px;
-    animation: lineAnim 1s ease forwards 0.3s, fillColor 0.5s ease 2.2s forwards;
+  stroke-dasharray: 219px;
+  stroke-dashoffset: 219px;
+  -webkit-animation: lineAnim 1s ease forwards 0.3s, fillColor 0.5s ease 2.2s forwards;
+          animation: lineAnim 1s ease forwards 0.3s, fillColor 0.5s ease 2.2s forwards;
 }
 
 path:nth-of-type(3) {
-    stroke-dasharray: 454px;
-    stroke-dashoffset: 454px;
-    animation: lineAnim 1s ease forwards 0.6s, fillColor 0.5s ease 2.2s forwards;
+  stroke-dasharray: 454px;
+  stroke-dashoffset: 454px;
+  -webkit-animation: lineAnim 1s ease forwards 0.6s, fillColor 0.5s ease 2.2s forwards;
+          animation: lineAnim 1s ease forwards 0.6s, fillColor 0.5s ease 2.2s forwards;
 }
 
 path:nth-of-type(4) {
-    stroke-dasharray: 219px;
-    stroke-dashoffset: 219px;
-    animation: lineAnim 1s ease forwards 0.9s, fillColor 0.5s ease 2.2s forwards;
+  stroke-dasharray: 219px;
+  stroke-dashoffset: 219px;
+  -webkit-animation: lineAnim 1s ease forwards 0.9s, fillColor 0.5s ease 2.2s forwards;
+          animation: lineAnim 1s ease forwards 0.9s, fillColor 0.5s ease 2.2s forwards;
 }
 
 path:nth-of-type(5) {
-    stroke-dasharray: 550px;
-    stroke-dashoffset: 550px;
-    animation: lineAnim 1s ease forwards 1.2s, fillColor 0.5s ease 2.2s forwards;
+  stroke-dasharray: 550px;
+  stroke-dashoffset: 550px;
+  -webkit-animation: lineAnim 1s ease forwards 1.2s, fillColor 0.5s ease 2.2s forwards;
+          animation: lineAnim 1s ease forwards 1.2s, fillColor 0.5s ease 2.2s forwards;
 }
 
 path:nth-of-type(6) {
-    stroke-dasharray: 219px;
-    stroke-dashoffset: 219px;
-    animation: lineAnim 1s ease forwards 1.5s, fillColor 0.5s ease 2.2s forwards;
+  stroke-dasharray: 219px;
+  stroke-dashoffset: 219px;
+  -webkit-animation: lineAnim 1s ease forwards 1.5s, fillColor 0.5s ease 2.2s forwards;
+          animation: lineAnim 1s ease forwards 1.5s, fillColor 0.5s ease 2.2s forwards;
 }
 
 path:nth-of-type(7) {
-    stroke-dasharray: 454px;
-    stroke-dashoffset: 454px;
-    animation: lineAnim 1s ease forwards 1.8s, fillColor 0.5s ease 2.2s forwards;
+  stroke-dasharray: 454px;
+  stroke-dashoffset: 454px;
+  -webkit-animation: lineAnim 1s ease forwards 1.8s, fillColor 0.5s ease 2.2s forwards;
+          animation: lineAnim 1s ease forwards 1.8s, fillColor 0.5s ease 2.2s forwards;
 }
 
 path:nth-of-type(8) {
-    stroke-dasharray: 219px;
-    stroke-dashoffset: 219px;
-    animation: lineAnim 1s ease forwards 2.1s, fillColor 0.5s ease 2.2s forwards;
+  stroke-dasharray: 219px;
+  stroke-dashoffset: 219px;
+  -webkit-animation: lineAnim 1s ease forwards 2.1s, fillColor 0.5s ease 2.2s forwards;
+          animation: lineAnim 1s ease forwards 2.1s, fillColor 0.5s ease 2.2s forwards;
+}
+
+@-webkit-keyframes lineAnim {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes lineAnim {
-    to {
-        stroke-dashoffset: 0;
-    }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes fillColor {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: #6D2128;
+  }
 }
 
 @keyframes fillColor {
-    from {
-        fill: transparent
-    }
-
-    to {
-        fill: darkred
-    }
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: #6D2128;
+  }
 }
+/*# sourceMappingURL=style.css.map */
