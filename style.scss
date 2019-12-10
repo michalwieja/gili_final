@@ -1,20 +1,52 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
-$breakSmall: 500px;
-$darkRed:#6D2128;
-$pink: #C87072;
-$mustard: #E79C00;
-
+$breakSmall: 1024px;
+$darkRed: #6d2128;
+$pink: #c87072;
+$mustard: #e79c00;
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    background-image: url("./img/bg.svg");
+    background-size: cover;
+    z-index: -1;
+}
+
+
+.red {
+    color: $darkRed;
+}
+
+.mustard {
+    color: $mustard;
+}
+
+.pink {
+    color: $pink;
 }
 
 section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 40vh;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.hero {
     height: 100vh;
     display: flex;
 
@@ -25,7 +57,7 @@ section {
 
 .logo {
     position: absolute;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     width: 300px;
     height: 300px;
@@ -46,7 +78,6 @@ section {
         top: 50%;
         left: 46%;
         transform: translate(-50%, -50%);
-
     }
 }
 
@@ -57,16 +88,15 @@ section {
 }
 
 .nav {
-    position: absolute;
+    position: fixed;
     height: 100vh;
     width: 30%;
-    background-color: $mustard;
+    background-color: $pink;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
     transition: 0.5s;
-
     transform: translateX(-100%);
     opacity: 0;
     visibility: hidden;
@@ -103,9 +133,7 @@ section {
 .img-container {
     position: relative;
     width: 50%;
-    height: 98%;
-    margin: 0.5%;
-    box-sizing: margin-box;
+    height: 100%;
 
     @media (max-width: $breakSmall) {
         width: 100%;
@@ -145,16 +173,11 @@ section {
     }
 }
 
-
 .playhouse .title {
-    @media(max-width: $breakSmall) {
+    @media (max-width: $breakSmall) {
         top: 25%;
     }
 }
-
-
-
-
 
 // menu
 .menu {
@@ -167,9 +190,20 @@ section {
 .menu .line {
     width: 25px;
     height: 3px;
-    background-color: white;
     margin: 5px;
-    transition: .2s;
+    transition: 0.2s;
+
+    &:nth-of-type(1) {
+        background-color: $darkRed;
+    }
+
+    &:nth-of-type(2) {
+        background-color: $pink;
+    }
+
+    &:nth-of-type(3) {
+        background-color: $mustard;
+    }
 }
 
 .menuActive .line:nth-child(1) {
@@ -179,11 +213,11 @@ section {
 .menuActive .line:nth-child(2) {
     opacity: 0;
     transform: translateX(50px);
-
 }
 
 .menuActive .line:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
+    background-color: $darkRed;
 }
 
 @keyframes navLinkFade {
@@ -200,7 +234,70 @@ section {
 
 // end menu
 
+#contact .content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 
+    @media (max-width: $breakSmall) {
+        flex-direction: column;
+    }
+
+    .map {
+        width: 50%;
+        padding-right: 5%;
+
+        @media (max-width: $breakSmall) {
+            width: 100%;
+            padding-right: 0%;
+        }
+    }
+}
+
+.contact-columns {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
+
+    @media (max-width: $breakSmall) {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tel {
+        text-decoration: none;
+        color: $pink;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:visited {
+            color: $darkRed;
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+
+    .socials {
+        a {
+            text-decoration: none;
+            color: #222;
+        }
+    }
+}
 
 // animations
 path:nth-of-type(1) {
@@ -259,10 +356,46 @@ path:nth-of-type(8) {
 
 @keyframes fillColor {
     from {
-        fill: transparent
+        fill: transparent;
     }
 
     to {
-        fill: $darkRed
+        fill: $darkRed;
     }
+}
+
+#aboutState,
+#birthdayState,
+#activitiesState {
+    display: none;
+}
+
+.read-more {
+    position: relative;
+    opacity: 0;
+    max-height: 0;
+    font-size: 0;
+    transition: 0.25s ease;
+}
+
+.read-more-state:checked~.read-more {
+    opacity: 1;
+    font-size: inherit;
+    max-height: 999em;
+}
+
+.read-more-state~.read-more-trigger:before {
+    content: "więcej";
+}
+
+.read-more-state:checked~.read-more-trigger:before {
+    content: "mniej";
+}
+
+.read-more-trigger {
+    cursor: pointer;
+    color: #222;
+    font-size: 20px;
+    line-height: 2;
+    z-index: 3;
 }

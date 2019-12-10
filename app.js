@@ -10,12 +10,18 @@ const navSlide = () => {
     menu.addEventListener('click', () => {
         nav.classList.toggle('navActive');
         menu.classList.toggle('menuActive')
-        links.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = ''
-            } else {
-                link.style.animation = `navLinkFade 1.5s ease forwards ${index / 5}s`;
-            }
+
+    })
+    links.forEach((link, index) => {
+
+
+        link.style.animation = `navLinkFade 1.5s ease forwards ${index / 5}s`;
+
+        link.addEventListener('click', () => {
+            menu.classList.toggle('menuActive')
+
+            nav.classList.toggle('navActive')
+
         })
     })
 }
