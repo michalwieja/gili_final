@@ -19,6 +19,30 @@ body {
   z-index: -1;
 }
 
+h2 {
+  font-size: 24px;
+}
+
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+p {
+  font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+  p {
+    font-size: 14px;
+    text-align: justify;
+    margin-top: 20px;
+  }
+}
+
 .red {
   color: #6d2128;
 }
@@ -375,7 +399,12 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 60px;
+}
+
+@media (max-width: 1024px) {
+  .footer .copy {
+    font-size: 12px;
+  }
 }
 
 .footer .socials a {
