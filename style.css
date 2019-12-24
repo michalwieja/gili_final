@@ -537,7 +537,6 @@ path:nth-of-type(8) {
 
 .read-more-state:checked ~ .read-more {
   opacity: 1;
-  font-size: inherit;
   max-height: 999em;
 }
 
