@@ -245,7 +245,7 @@ section {
 
 @media (max-width: 1024px) {
   .title {
-    top: 60%;
+    top: 50%;
     left: 50%;
     width: 70%;
     font-size: 20px;
