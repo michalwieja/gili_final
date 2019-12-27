@@ -79,6 +79,8 @@ section {
 
   @media (max-width: $breakSmall) {
     flex-direction: column;
+    height: 90vh;
+
   }
 }
 
