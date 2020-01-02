@@ -23,6 +23,16 @@ body {
   z-index: -1;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, $pink);
+  border-radius: 10px;
+
+}
+
 h2 {
   font-size: 24px;
   margin: 20px;
@@ -79,7 +89,7 @@ section {
 
   @media (max-width: $breakSmall) {
     flex-direction: column;
-    height: 90vh;
+    height: 95vh;
 
   }
 }
