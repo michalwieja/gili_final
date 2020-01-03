@@ -101,6 +101,7 @@ section {
 
 .hero a {
   text-decoration: none;
+  position: relative;
 }
 
 @media (max-width: 1024px) {
