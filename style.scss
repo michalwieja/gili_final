@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins|Sacramento&display=swap");
 
 $breakSmall: 1024px;
 $darkRed: #6d2128;
@@ -30,13 +30,11 @@ body {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(transparent, $pink);
   border-radius: 10px;
-
 }
 
 h2 {
   font-size: 24px;
   margin: 20px;
-
 
   @media (max-width: $breakSmall) {
     font-size: 18px;
@@ -87,10 +85,13 @@ section {
   height: 100vh;
   display: flex;
 
+  a {
+    text-decoration: none;
+  }
+
   @media (max-width: $breakSmall) {
     flex-direction: column;
     height: 95vh;
-
   }
 }
 
@@ -117,6 +118,8 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+
   }
 }
 
@@ -131,8 +134,9 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
 
+
+  }
 }
 
 .nav {
@@ -161,6 +165,14 @@ section {
     flex-direction: column;
     justify-content: space-evenly;
     padding: 10% 0;
+
+    li {
+      &:hover {
+        animation: anime 1s linear infinite;
+        transform-origin: 50% 50%;
+      }
+    }
+
   }
 
   &-link {
@@ -169,6 +181,8 @@ section {
     font-size: 32px;
     color: $darkRed;
     opacity: 0;
+
+
   }
 }
 
@@ -202,6 +216,7 @@ section {
 
 .title {
   background-color: rgba(200, 112, 113, 0.8);
+  font-family: "Poppins", sans-serif;
   padding: 20px 40px;
   width: 50%;
   left: 50%;
@@ -338,7 +353,6 @@ section {
   justify-content: space-around;
   align-items: center;
 
-  // height: 60px;
   .copy {
     @media (max-width: $breakSmall) {
       font-size: 12px;
@@ -451,9 +465,61 @@ path:nth-of-type(8) {
 }
 
 .read-more-trigger {
+  font-family: "Sacramento", cursive;
   cursor: pointer;
   color: #222;
-  font-size: 12px;
+  font-size: 24px;
   line-height: 2;
   z-index: 3;
+
+  &:hover {
+    animation: anime 1s linear infinite;
+    transform-origin: 50% 50%;
+  }
+}
+
+@keyframes anime {
+  0% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(0px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(2px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(2px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
