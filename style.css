@@ -50,6 +50,7 @@ h2 {
 p,
 p.read-more {
   font-size: 16px;
+  width: 100%;
 }
 
 @media (max-width: 1024px) {
@@ -59,6 +60,10 @@ p.read-more {
     text-align: justify;
     margin-top: 20px;
   }
+}
+
+.wauto {
+  width: auto;
 }
 
 .red {
@@ -269,17 +274,11 @@ section {
 
 @media (max-width: 1024px) {
   .title {
-    top: 50%;
+    top: 60%;
     left: 50%;
     width: 70%;
     font-size: 20px;
     padding: 10px 20px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .playhouse .title {
-    top: 25%;
   }
 }
 
@@ -382,6 +381,74 @@ section {
     width: 100%;
     padding-right: 0%;
   }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+  Basic gallery grid, supporting old browsers.
+*/
+.grid-gallery {
+  padding: 0.5rem;
+}
+
+.grid-gallery-item {
+  padding: 0;
+  margin: 0.5rem;
+  max-width: 200px;
+  display: inline-block;
+}
+
+/*
+  Enhance the gallery layout if CSS Grid is supported.
+*/
+@supports (display: grid) {
+  .grid-gallery {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(100px, auto))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+    grid-auto-rows: 100px;
+    grid-gap: 1rem;
+  }
+  @media screen and (min-width: 420px) {
+    .grid-gallery {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: (minmax(150px, auto))[auto-fill];
+          grid-template-columns: repeat(auto-fill, minmax(150px, auto));
+      grid-auto-rows: 200px;
+      grid-gap: 1rem;
+      grid-auto-flow: dense;
+    }
+  }
+  .grid-gallery-item {
+    margin: 0;
+    max-width: none;
+  }
+  .grid-gallery-item:first-child {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+  .grid-gallery-item:nth-child(5) {
+    grid-row: span 2;
+  }
+  .grid-gallery-item:nth-child(8) {
+    grid-column: span 2;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+#contact {
+  min-height: 60vh;
 }
 
 .contact-columns {
@@ -552,6 +619,7 @@ path:nth-of-type(8) {
 
 .read-more {
   position: relative;
+  width: 100%;
   opacity: 0;
   max-height: 0;
   font-size: 0;
