@@ -1,5 +1,9 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Poppins|Sacramento&display=swap");
+.fa-circle {
+  font-size: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
