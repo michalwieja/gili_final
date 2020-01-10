@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Poppins|Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins|Sacramento&display=swap&subset=latin-ext");
 .gilifont {
   font-family: "Sacramento", cursive;
   font-size: 32px;
