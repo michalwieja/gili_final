@@ -27,3 +27,18 @@ const navSlide = () => {
 }
 
 navSlide();
+
+
+// cennik
+
+const priceBtn = document.querySelector('.priceBtn');
+const closeBtn = document.querySelector('.closeBtn');
+const modal = document.querySelector('.modal-bg')
+
+priceBtn.addEventListener('click', function () {
+    modal.classList.add('modal-active')
+})
+
+closeBtn.addEventListener('click', function () {
+    modal.classList.remove('modal-active')
+})
