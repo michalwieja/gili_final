@@ -10,7 +10,6 @@ $popinsFont:"Poppins",
 sans-serif;
 
 
-
 .gilifont {
   font-family: $giliFont;
   font-size: 32px;
@@ -70,8 +69,6 @@ sans-serif;
       }
     }
 
-
-
     &::before {
       content: '';
       position: absolute;
@@ -80,7 +77,6 @@ sans-serif;
       height: 100%;
       width: 100%;
       background: url('./img/bg.svg');
-
       z-index: 10;
       background-repeat: no-repeat;
     }
@@ -91,7 +87,6 @@ sans-serif;
       right: 10px;
       cursor: pointer;
       z-index: 20;
-
     }
 
     .column {
@@ -99,13 +94,11 @@ sans-serif;
       display: flex;
       height: 100%;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
       flex-direction: column;
       text-align: center;
     }
-
   }
-
 }
 
 .modal-active {
@@ -205,7 +198,7 @@ section {
 
   @media (max-width: $breakSmall) {
     flex-direction: column;
-    height: 95vh;
+    height: 97vh;
   }
 }
 
@@ -220,7 +213,6 @@ section {
   transform: translate(-50%, -50%);
   z-index: 1;
   transition: 1s;
-
 
   @media (max-width: $breakSmall) {
     width: 120px;
@@ -311,7 +303,7 @@ section {
 }
 
 .cafe {
-  background: url(./img/cafe.png);
+  background: url(./img/cafe.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -440,6 +432,14 @@ img {
   margin: 0.5rem;
   max-width: 200px;
   display: inline-block;
+
+  img {
+    transition: 0.5s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }
 
 /*
@@ -488,6 +488,7 @@ img {
     object-fit: cover;
   }
 }
+
 
 #contact {
   min-height: 60vh;
