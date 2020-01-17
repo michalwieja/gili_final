@@ -14,11 +14,13 @@
   font-size: 10px;
 }
 
-.priceBtn {
+.priceBtn,
+.rulesBtn {
   cursor: pointer;
 }
 
-.modal-bg {
+.modal-bg,
+.rulesModal-bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -42,7 +44,8 @@
   transition: 0.5s;
 }
 
-.modal-bg .modal {
+.modal-bg .modal,
+.rulesModal-bg .modal {
   width: 50%;
   height: 50%;
   background-color: #fff;
@@ -60,7 +63,8 @@
 }
 
 @media (max-width: 1024px) {
-  .modal-bg .modal {
+  .modal-bg .modal,
+  .rulesModal-bg .modal {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -68,15 +72,18 @@
     width: 90%;
     height: 90%;
   }
-  .modal-bg .modal h4 {
+  .modal-bg .modal h4,
+  .rulesModal-bg .modal h4 {
     font-size: 24px;
   }
-  .modal-bg .modal p {
+  .modal-bg .modal p,
+  .rulesModal-bg .modal p {
     font-size: 12px;
   }
 }
 
-.modal-bg .modal::before {
+.modal-bg .modal::before,
+.rulesModal-bg .modal::before {
   content: '';
   position: absolute;
   top: 0;
@@ -88,7 +95,10 @@
   background-repeat: no-repeat;
 }
 
-.modal-bg .modal .closeBtn {
+.modal-bg .modal .closeBtn,
+.modal-bg .modal .closeRulesBtn,
+.rulesModal-bg .modal .closeBtn,
+.rulesModal-bg .modal .closeRulesBtn {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -96,7 +106,8 @@
   z-index: 20;
 }
 
-.modal-bg .modal .column {
+.modal-bg .modal .column,
+.rulesModal-bg .modal .column {
   padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -180,6 +191,11 @@ p.read-more {
     text-align: justify;
     margin-top: 20px;
   }
+}
+
+.rules a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .wauto {
@@ -367,14 +383,24 @@ section {
 
 .cafe {
   background: url(./img/cafe.jpg);
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
+  -webkit-transition: .5s;
+  transition: .5s;
+  overflow: hidden;
 }
 
 .playhouse {
   background: url(./img/playhouse.jpg);
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
+  -webkit-transition: .5s;
+  transition: .5s;
+  overflow: hidden;
+}
+
+.hovered {
+  background-size: 105%;
 }
 
 .title {
@@ -507,77 +533,54 @@ section {
   }
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+.gridContainer {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-columns: (minmax(140px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-auto-rows: 120px;
+  grid-auto-flow: dense;
 }
 
-/*
-  Basic gallery grid, supporting old browsers.
-*/
-.grid-gallery {
-  padding: 0.5rem;
+.gridContainer a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2em;
 }
 
-.grid-gallery-item {
-  padding: 0;
-  margin: 0.5rem;
-  max-width: 200px;
-  display: inline-block;
+.gridContainer a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
-.grid-gallery-item img {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+.gridContainer a img:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
-.grid-gallery-item img:hover {
-  opacity: 0.7;
+.gridContainer .horizontal {
+  grid-column: span 2;
 }
 
-/*
-  Enhance the gallery layout if CSS Grid is supported.
-*/
-@supports (display: grid) {
-  .grid-gallery {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(100px, auto))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(100px, auto));
-    grid-auto-rows: 100px;
-    grid-gap: 1rem;
-  }
-  @media screen and (min-width: 420px) {
-    .grid-gallery {
-      display: -ms-grid;
-      display: grid;
-      -ms-grid-columns: (minmax(150px, auto))[auto-fill];
-          grid-template-columns: repeat(auto-fill, minmax(150px, auto));
-      grid-auto-rows: 200px;
-      grid-gap: 1rem;
-      grid-auto-flow: dense;
-    }
-  }
-  .grid-gallery-item {
-    margin: 0;
-    max-width: none;
-  }
-  .grid-gallery-item:first-child {
-    grid-row: span 2;
-    grid-column: span 2;
-  }
-  .grid-gallery-item:nth-child(5) {
-    grid-row: span 2;
-  }
-  .grid-gallery-item:nth-child(8) {
-    grid-column: span 2;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
+.gridContainer .vertical {
+  grid-row: span 2;
+}
+
+.gridContainer .big {
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
 #contact {

@@ -42,3 +42,28 @@ priceBtn.addEventListener('click', function () {
 closeBtn.addEventListener('click', function () {
     modal.classList.remove('modal-active')
 })
+
+// hero
+
+const cafeTitle = document.querySelector('.cafe .title');
+const playhouseTitle = document.querySelector('.playhouse .title');
+const cafe = document.querySelector('.cafe')
+const playhouse = document.querySelector('.playhouse')
+
+cafeTitle.addEventListener('mouseover', function () {
+    cafe.classList.add('hovered')
+
+})
+cafeTitle.addEventListener('mouseleave', function () {
+    cafe.classList.remove('hovered')
+
+})
+
+playhouseTitle.addEventListener('mouseover', function () {
+    playhouse.classList.add('hovered')
+
+})
+playhouseTitle.addEventListener('mouseleave', function () {
+    playhouse.classList.remove('hovered')
+
+})
